@@ -16,9 +16,10 @@ exports.setup = function(runningApp, callback) {
   //---- Mounting well-encapsulated application modules (so-called: "mini-apps")
   //---- See: http://expressjs.com/guide/routing.html and http://vimeo.com/56166857
   runningApp.use('/hello', require('hello')); // attach to sub-route
+  runningApp.use('/', require('hello')); // attach to root route
 
   // API endpoint attached to root route:
-  runningApp.use('/', require('homedoc')); // attach to root route
+  runningApp.use('/api', require('homedoc')); // attach to sub-route
 
   // If you need websockets:
   // var socketio = require('socket.io')(runningApp.http);
